@@ -6,7 +6,7 @@ ProfilePage.getInitialProps = async ({ req, query }) => {
     ? `${req.headers['x-forwarded-proto']}:`
     : location.protocol
   const host = req ? req.headers['x-forwarded-host'] : location.host
-  const pageRequest = `${protocol}//${host}/api/profiles/${query.id}`
+  const pageRequest = `${protocol}//${host}/api/profiles/profile?id=${query.id}`
   const res = await fetch(pageRequest)
   const json = await res.json()
   return json
